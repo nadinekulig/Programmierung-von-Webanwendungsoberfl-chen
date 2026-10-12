@@ -142,3 +142,40 @@ filterReset.addEventListener("click", function() {
     datenFiltern();
 
 });
+
+/* Tabelle alphabetisch sortieren */
+
+let sortierSpalte = "";
+let sortierRichtung = 1;
+
+function datenSortieren(spalte) {
+
+    if (sortierSpalte === spalte) {
+        sortierRichtung = sortierRichtung * -1;
+    } else {
+        sortierSpalte = spalte;
+        sortierRichtung = 1;
+    }
+
+    emissionsdaten.sort(function(a, b) {
+
+        return a[spalte].localeCompare(b[spalte]) * sortierRichtung;
+
+    });
+
+    datenFiltern();
+
+}
+
+/* Sortierbuttons mit Funktionen verbinden */
+
+const sortLand = document.getElementById("sort-land");
+const sortUnternehmen = document.getElementById("sort-unternehmen");
+
+sortLand.addEventListener("click", function() {
+    datenSortieren("land");
+});
+
+sortUnternehmen.addEventListener("click", function() {
+    datenSortieren("unternehmen");
+});
