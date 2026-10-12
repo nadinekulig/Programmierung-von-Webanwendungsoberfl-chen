@@ -287,3 +287,29 @@ html[dir="rtl"] main {
         min-width: 120px;
     }
 }
+
+/* Bootstrap-Anpassungen */
+
+table caption {
+    caption-side: top;
+    color: #1f1f1f;
+    font-weight: bold;
+}
+
+/* Überschriften */
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* Bootstrap-Button an das Design anpassen */
+
+#filter-reset {
+    background-color: #205a43;
+    border-color: #205a43;
+}
+
+#filter-reset:hover{
+    background-color: #174532;
+    border-color: #174532;
+}
