@@ -129,3 +129,16 @@ landFilter.addEventListener("change", datenFiltern);
 
 unternehmenFilter.addEventListener("input", datenFiltern);
 
+/* Filter zurücksetzen */
+
+const filterReset = document.getElementById("filter-reset");
+
+filterReset.addEventListener("click", function() {
+
+    landFilter.value = "";
+
+    unternehmenFilter.value = "";
+
+    datenFiltern();
+
+});
