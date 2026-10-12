@@ -1,0 +1,289 @@
+/* Allgemeine Grundeinstellungen */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #24332b;
+    background-color: #f1f4f2;
+}
+
+h1, h2 { 
+    color: #205c42;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Header und Globale Navigation */
+
+header {
+    background-color: #205c42;
+    color: white;
+    padding: 20px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Seitenlayout */
+
+.seitenlayout {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+/* Lokale Navigation */
+
+aside {
+    flex: 0 0 220px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+aside h2 {
+    margin-top: 0;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside li {
+    margin-bottom: 12px;
+}
+
+aside a:hover {
+    color: #238456;
+    text-decoration: underline;
+}
+
+/* Hauptinhalt */
+
+main {
+    flex: 1;
+    min-width: 0;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+section h1,
+section h2 {
+    margin-top: 0;
+}
+
+/* Filterbereich */
+
+.filterbereich {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.filterbereich input,
+.filterbereich select {
+    padding: 10px;
+    border: 1px solid #b7c7bc;
+    border-radius: 5px;
+    font: inherit;
+    max-width: 100%;
+}
+
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #205c42;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #167047;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #e0a83e;
+    outline-offset: 3px;
+}
+
+/* CO2-Emissionstabelle */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #d5e0d8;
+    text-align: left;
+}
+
+th {
+    background-color: #e0eee5;
+}
+
+th button {
+    width: 100%;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f1f6f2;
+}
+
+tbody tr:hover {
+    background-color: #e3f0e7;
+}
+
+/* Footer */
+
+footer {
+    background-color: #205c42;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: underline;
+}
+
+/* Schreibrichtung LTR/RTL */
+
+/* Standard: links-nach-rechts */
+.seitenlayout {
+    flex-direction: row;
+}
+
+/* Rechts-nach-links, z.B. Arabisch */
+html[dir="rtl"] .seitenlayout {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] aside,
+html[dir="rtl"] main {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Responsive Design */
+
+/* TABLETS */
+@media (max-width: 900px) {
+
+    .seitenlayout {
+        flex-direction: column;
+    }
+
+    html[dir="rtl"] .seitenlayout {
+        flex-direction: column;
+    }
+
+    aside {
+        flex: auto;
+        width: 100%;
+    }
+
+    main {
+        width: 100%; 
+    }
+}
+
+/* SMARTPHONES */
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .seitenlayout {
+        padding: 0 12px;
+        margin: 15px auto;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .filterbereich {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filterbereich input,
+    .filterbereich select,
+    .filterbereich button {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    th, td {
+        min-width: 120px;
+    }
+}
