@@ -5,16 +5,21 @@
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "DM Sans", Arial, sans-serif;
     line-height: 1.6;
-    color: #24332b;
-    background-color: #f1f4f2;
+    color: var(--farbe-dunkel);
+    background-color: var(--farbe-hintergrund);
 }
 
-h1, h2 { 
-    color: #205c42;
+h1, h2, h3 {
+    font-family: "Plus Jakarta Sans", Arial, sans-serif;
+    font-weight: 700; 
+    color: var(--farbe-dunkel);
 }
 
 a {
@@ -25,9 +30,8 @@ a {
 /* Header und Globale Navigation */
 
 header {
-    background-color: #205c42;
-    color: white;
-    padding: 20px 5%;
+    background-color: var(--farbe-dunkel);
+    padding: 24px 5%;
 
     display: flex;
     justify-content: space-between;
@@ -42,6 +46,15 @@ header {
     gap: 10px;
     font-size: 24px;
     font-weight: bold;
+    font-family: "Plus Jakarta Sans", Arial, sans-serif;
+    color: var(--farbe-weiss);
+}
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
 }
 
 header nav {
@@ -51,14 +64,23 @@ header nav {
 
 }
 
+header nav a {
+    color: var(--farbe-weiss);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
 header nav a:hover {
-    text-decoration: underline;
+    color: var(--farbe-rosa);
+    text-decoration: none;
 }
 
 /* Seitenlayout */
 
 .seitenlayout {
     display: flex;
+    flex: 1;
     gap: 30px;
     max-width: 1200px;
     margin: 30px auto;
@@ -70,7 +92,7 @@ header nav a:hover {
 
 aside {
     flex: 0 0 220px;
-    background-color: white;
+    background-color: var(--farbe-weiss);
     padding: 20px;
     border-radius: 8px;
 }
@@ -90,7 +112,7 @@ aside li {
 }
 
 aside a:hover {
-    color: #238456;
+    color: var(--farbe-mauve);
     text-decoration: underline;
 }
 
@@ -99,6 +121,13 @@ aside a:hover {
 main {
     flex: 1;
     min-width: 0;
+}
+
+/* Fließtexte im Hauptinhalt */
+
+main p {
+    font-size: 16px;
+    line-height: 1.8;
 }
 
 section {
@@ -111,6 +140,23 @@ section {
 section h1,
 section h2 {
     margin-top: 0;
+}
+
+/* Abstände im Informationsbereich */
+
+#informationen h3{
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+informationen h3:first-of-type {
+    margin-top: 20px;
+}
+
+informationen p {
+    margin-bottom: 20px;
+    line-height: 1.8;
 }
 
 /* Filterbereich */
@@ -126,7 +172,7 @@ section h2 {
 .filterbereich input,
 .filterbereich select {
     padding: 10px;
-    border: 1px solid #b7c7bc;
+    border: 1px solid var(--farbe-rosa-hell);
     border-radius: 5px;
     font: inherit;
     max-width: 100%;
@@ -136,14 +182,13 @@ button {
     padding: 10px 14px;
     border: none;
     border-radius: 5px;
-    background-color: #205c42;
-    color: white;
+    background-color: var(--farbe-rosa);
     font: inherit;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #167047;
+    background-color: var(--farbe-mauve);
 }
 
 button:focus-visible,
@@ -170,12 +215,11 @@ caption {
 
 th, td {
     padding: 12px;
-    border: 1px solid #d5e0d8;
     text-align: left;
 }
 
 th {
-    background-color: #e0eee5;
+    background-color: var(--farbe-rosa-hell);
 }
 
 th button {
@@ -184,18 +228,17 @@ th button {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f1f6f2;
+    background-color: var(--farbe-rosa-hell);
 }
 
 tbody tr:hover {
-    background-color: #e3f0e7;
+    background-color: var(--farbe-rosa);
 }
 
 /* Footer */
 
 footer {
-    background-color: #205c42;
-    color: white;
+    background-color: var(--farbe-rosa-hell);
     padding: 25px;
     text-align: center;
 }
@@ -305,11 +348,22 @@ h1, h2, h3 {
 /* Bootstrap-Button an das Design anpassen */
 
 #filter-reset {
-    background-color: #205a43;
-    border-color: #205a43;
+    background-color: var(--farbe-rosa);
+    border-color: var(--farbe-rosa);
 }
 
 #filter-reset:hover{
-    background-color: #174532;
-    border-color: #174532;
+    background-color: var(--farbe-rosa-hell);
+    border-color: var(--farbe-rosa-hell);
+}
+
+/* Neue Farbpalette */
+
+:root {
+    --farbe-hintergrund: #F8F7FA;
+    --farbe-rosa-hell: #F1DAE5;
+    --farbe-rosa: #C88DAD;
+    --farbe-mauve: #8C5A82;
+    --farbe-dunkel: #292633;
+    --farbe-weiss: #FFFFFF;
 }
