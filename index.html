@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO₂-Footprint</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Kopfbereich mit globaler Navigation -->
+    <header>
+        <div class="logo">
+            <span aria-hidden="true">🌍</span>
+            <span>CO<sub>2</sub>-Footprint</span>
+        </div>
+
+        <nav aria-label="Hauptnavigation">
+            <a href="#startseite">Startseite</a>
+            <a href="#emissionen">CO<sub>2</sub>-Daten</a>
+            <a href="#informationen">Informationen</a>
+        </nav>
+    </header>
+
+    <!-- Layoutbereich -->
+    <div class="seitenlayout">
+
+        <!-- Lokale Navigation -->
+         <aside>
+            <nav aria-label="Seitennavigation">
+                <h2>Navigation</h2>
+                <ul>
+                    <li><a href="#startseite">Übersicht</a></li>
+                    <li><a href="#emissionen">Emissionstabelle</a></li>
+                    <li><a href="#informationen">Hintergrund</a></li>
+                </ul>
+            </nav>
+         </aside>
+
+         <!-- Hauptinhalt -->
+          <main>
+
+            <!-- Einleitung -->
+            <section id="startseite">
+                <h1>CO<sub>2</sub>-Emissionen im Überblick</h1>
+                <p>
+                    Diese Webseite bietet eine Übersicht 
+                    über die jährlichen CO<sub>2</sub>-Emissionen
+                    verschiedener Länder und Unternehmen.
+                </p>
+            </section>
+
+            <!-- Emissionsdaten -->
+            <section id="emissionen">
+                <h2>CO<sub>2</sub>-Emissionsdaten</h2>
+                <p>
+                    Die folgenden Daten sind fiktiv und 
+                    dienen der Veranschaulichung.
+                </p>
+
+                <!-- Filtermöglichkeiten -->
+                <div class="filterbereich">
+                    <label for="land-filter">
+                        Land auswählen:
+                    </label>
+                    <select id="land-filter">
+                        <option value="">Alle Länder</option>
+                    </select>
+
+                    <label for="unternehmen-filter">
+                        Unternehmen suchen:
+                    </label>
+                    <input
+                        type="search"
+                        id="unternehmen-filter"
+                        placeholder="Unternehmen eingeben"
+                        >
+
+                        <button type="button" id="filter-reset">
+                            Filter zurücksetzen
+                        </button>
+                </div>
+
+                <!-- CO2-Tabelle -->
+                <table>
+                    <caption>
+                        Fiktive jährliche CO<sub>2</sub>-Emissionen
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <button type="button" id="sort-land">
+                                    Land ↕
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" id="sort-unternehmen">
+                                    Unternehmen ↕
+                                </button>
+                            </th>
+                            <th scope="col">
+                                CO<sub>2</sub>-Emissionen (t/Jahr)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="emissions-tabelle">
+                        <!-- Daten werden mit Javascript eingefügt -->
+                    </tbody>
+                </table>
+
+            </section>
+
+            <!-- Hintergrundinformationen -->
+            <section id="informationen">
+                <h2>Über diese Webseite</h2>
+                <p>
+                    Dieses Projekt demonstriert die
+                    Darstellung, Sortierung und Filterung
+                    von CO<sub>2</sub>-Emissionsdaten.
+                </p>
+            </section>
+
+          </main>
+    </div>
+
+    <!-- Fußbereich -->
+    <footer>
+        <p>CO<sub>2</sub>-Footprint - Fallstudie</p>
+        <p>Alle dargestellten Emissionsdaten sind fiktiv.</p>
+        <nav aria-label="Rechtliche Hinweise">
+            <a href="#informationen">Informationen zum Projekt</a>
+        </nav>
+    </footer>
+
+</body>
+</html>
