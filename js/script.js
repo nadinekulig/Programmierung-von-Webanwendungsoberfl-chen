@@ -78,3 +78,64 @@ function tabelleAnzeigen(daten) {
 /* Tabelle beim Laden der Webseite befüllen */
 
 tabelleAnzeigen(emissionsdaten);
+
+/* Länderfilter mit Auswahlmöglichkeiten befüllen */
+
+const landFilter = document.getElementById("land-filter");
+
+const laender = [...new Set(emissionsdaten.map(function(eintrag) {
+    return eintrag.land;
+}))];
+
+laender.sort();
+
+laender.forEach(function(land) {
+    const option = document.createElement("option");
+
+    option.value = land;
+    option.textContent = land;
+
+    landFilter.appendChild(option);
+});
+
+/* Tabelle nach ausgewähltem Land filtern */
+
+landFilter.addEventListener("change", function() {
+
+    const ausgewaehltesLand = landFilter.value;
+
+    const gefilterteDaten = emissionsdaten.filter(function(eintrag) {
+
+        return ausgewaehltesLand === "" ||
+            eintrag.land === ausgewaehltesLand;
+    });
+
+    tabelleAnzeigen(gefilterteDaten);
+});
+
+/* Unternehmenssuche */
+
+const unternehmenFilter = document.getElementById("unternehmen-filter");
+
+unternehmenFilter.addEventListener("input", function() {
+
+    const suchbegriff = unternehmenFilter.value.toLowerCase();
+
+    const ausgewaehltesLand = landFilter.value;
+
+    const gefilterteDaten = emissionsdaten.filter(function(eintrag) {
+
+        const landPasst= ausgewaehltesLand === "" ||
+                        eintrag.land === ausgewaehltesLand;
+
+        const unternehmenPasst = eintrag.unternehmen
+            .toLowerCase()
+            .includes(suchbegriff);
+        
+        return landPasst && unternehmenPasst;
+
+    });
+
+    tabelleAnzeigen(gefilterteDaten);
+
+});
