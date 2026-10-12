@@ -25,15 +25,34 @@
     <header>
         <div class="logo">
             <img src="assets/logo.svg" alt="CO₂-Footprint Logo">
-            <span>CO₂-Footprint</span>
         </div>
 
         <nav aria-label="Hauptnavigation">
-            <a href="#startseite">Startseite</a>
             <a href="#emissionen">CO₂-Daten</a>
-            <a href="#informationen">Informationen</a>
         </nav>
     </header>
+
+    <!-- Video Header -->
+    <section class="video-hero" aria-label="Einführung">
+        <video autoplay muted loop playsinline>
+            <source src="assets/wolken.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-hero-inhalt">
+            <h1>Emissionen sichtbar machen.</h1>
+
+            <p>
+                Daten verstehen. Bewusstsein schaffen.
+                Zukunft gestalten.
+            </p>
+
+            <div class="video-hero-buttons">
+                <a href="#startseite" class="hero-button">
+                    Mehr erfahren
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Layoutbereich -->
     <div class="seitenlayout container-fluid">
@@ -120,7 +139,9 @@
                                 </button>
                             </th>
                             <th scope="col">
-                                CO₂-Emissionen (t/Jahr)
+                                <button type="button" id="sort-emissionen">
+                                CO₂-Emissionen (t/Jahr) ↕
+                                </button>
                             </th>
                         </tr>
                     </thead>

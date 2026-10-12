@@ -143,7 +143,7 @@ filterReset.addEventListener("click", function() {
 
 });
 
-/* Tabelle alphabetisch sortieren */
+/* Tabelle nach Land, Unternehmen oder CO2-Emissionen sortieren */
 
 let sortierSpalte = "";
 let sortierRichtung = 1;
@@ -159,6 +159,10 @@ function datenSortieren(spalte) {
 
     emissionsdaten.sort(function(a, b) {
 
+        if(spalte === "emissionen") {
+            return (a.emissionen - b.emissionen) * sortierRichtung;
+        }
+
         return a[spalte].localeCompare(b[spalte]) * sortierRichtung;
 
     });
@@ -171,6 +175,7 @@ function datenSortieren(spalte) {
 
 const sortLand = document.getElementById("sort-land");
 const sortUnternehmen = document.getElementById("sort-unternehmen");
+const sortEmissionen = document.getElementById("sort-emissionen");
 
 sortLand.addEventListener("click", function() {
     datenSortieren("land");
@@ -178,4 +183,8 @@ sortLand.addEventListener("click", function() {
 
 sortUnternehmen.addEventListener("click", function() {
     datenSortieren("unternehmen");
+});
+
+sortEmissionen.addEventListener("click", function() {
+    datenSortieren("emissionen");
 });
