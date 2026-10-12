@@ -213,7 +213,7 @@ footer a {
 
 /* Rechts-nach-links, z.B. Arabisch */
 html[dir="rtl"] .seitenlayout {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 html[dir="rtl"] aside,
