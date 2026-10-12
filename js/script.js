@@ -98,36 +98,20 @@ laender.forEach(function(land) {
     landFilter.appendChild(option);
 });
 
-/* Tabelle nach ausgewähltem Land filtern */
-
-landFilter.addEventListener("change", function() {
-
-    const ausgewaehltesLand = landFilter.value;
-
-    const gefilterteDaten = emissionsdaten.filter(function(eintrag) {
-
-        return ausgewaehltesLand === "" ||
-            eintrag.land === ausgewaehltesLand;
-    });
-
-    tabelleAnzeigen(gefilterteDaten);
-});
-
-/* Unternehmenssuche */
+/* Gemeinsame Filterfunktion */
 
 const unternehmenFilter = document.getElementById("unternehmen-filter");
 
-unternehmenFilter.addEventListener("input", function() {
-
-    const suchbegriff = unternehmenFilter.value.toLowerCase();
+function datenFiltern() {
 
     const ausgewaehltesLand = landFilter.value;
+    const suchbegriff = unternehmenFilter.value.toLowerCase();
 
     const gefilterteDaten = emissionsdaten.filter(function(eintrag) {
 
-        const landPasst= ausgewaehltesLand === "" ||
-                        eintrag.land === ausgewaehltesLand;
-
+        const landPasst = ausgewaehltesLand === "" ||
+                          eintrag.land === ausgewaehltesLand;
+        
         const unternehmenPasst = eintrag.unternehmen
             .toLowerCase()
             .includes(suchbegriff);
@@ -137,5 +121,11 @@ unternehmenFilter.addEventListener("input", function() {
     });
 
     tabelleAnzeigen(gefilterteDaten);
+}
 
-});
+/* Filter bei Änderungen aktualisieren */
+
+landFilter.addEventListener("change", datenFiltern);
+
+unternehmenFilter.addEventListener("input", datenFiltern);
+
