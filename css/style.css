@@ -512,3 +512,16 @@ table caption {
         font-size: 14px;
     }
 }
+
+/* Header auf rechtlichen Unterseiten */
+
+body:has(#impressum) header,
+body:has(#datenschutz) header {
+    position:relative;
+    background-color: var(--farbe-dunkel);
+}
+
+body:has(#impressum) main,
+body:has(#datenschutz) main {
+    width: 100%;
+}
